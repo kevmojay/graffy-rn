@@ -1,0 +1,29 @@
+[
+    {
+        "key": 1,
+        "latlng": {
+            "latitude": 34.2554414,
+            "longitude": -118.5853856
+        },
+        "title": "home",
+        "description": "My Home"
+    },
+    {
+        "key": 2,
+        "latlng": {
+            "latitude": 34.253447,
+            "longitude": -118.586447
+        },
+        "title": "Chatsworth",
+        "description": "Chatsworth High"
+    },
+        {
+        "key": 3,
+        "latlng": {
+            "latitude": 34.261215,
+            "longitude": -118.578422
+        },
+        "title": "Mason Park",
+        "description": "Park"
+    }
+]
