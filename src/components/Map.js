@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MapView from 'react-native-maps';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 import { 
     StyleSheet, 
     View, 
@@ -11,12 +12,12 @@ import {
  } from 'react-native';
 
 import { MKButton, MKColor, MKTouchable } from 'react-native-material-kit';
-import * as actions from '../actions';
+import { onNewTagPress, onRegionChange } from '../actions';
 
 class Map extends Component {
 
     render() {
-        const region  = this.props.map;
+        const region = this.props.map;
         const styles = {
             mapStyle: {
                  ...StyleSheet.absoluteFillObject
@@ -26,7 +27,8 @@ class Map extends Component {
         const PlainFab = MKButton.plainFab()
         .withStyle(styles.fab)
         .withOnPress(() => {
-            this.props.onPostFormPress;
+            console.log('plainfab');
+            Actions.postTag();
         })
         .build();
         
@@ -60,14 +62,14 @@ const mapStateToProps = state => {
     return { 
         map: state.map,
         markers: state.markers
-       // onPostFormPress: state.map.
     }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions
+    onNewTagPress,
+    onRegionChange
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Map);
+export default connect(mapStateToProps, { onNewTagPress, onRegionChange })(Map);

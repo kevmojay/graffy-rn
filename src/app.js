@@ -7,6 +7,7 @@ import { Header } from './components/common';
 import Map from './components/Map';
 import PostTagForm from './components/PostTagForm';
 import configureStore from './store/configureStore';
+import Router from './Router';
 
 
 const store = configureStore();
@@ -29,10 +30,7 @@ class App extends Component {
 
         return (
           <Provider store={store}>
-                <View style={{flex: 1}}>
-                <Header headerText="Graffy" />
-                    <Map />
-                </View>
+                    <Router />
             </Provider>
         );
     }

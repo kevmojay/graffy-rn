@@ -1,0 +1,1 @@
+export const CREATE_POST_FORM = 'create_post_form';
