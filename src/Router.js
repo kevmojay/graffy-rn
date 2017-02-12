@@ -7,7 +7,7 @@ const RouterComponent = () => {
     return (
         <Router sceneStyle={{ paddingTop: 65 }}>
             <Scene key="main">
-                <Scene key="map" component={Map} title="Map" onRight={() => Actions.tagCreate()} />
+                <Scene key="map" component={Map} title="Map" onRight={() => Actions.tagCreate()} rightTitle={null}/>
                 <Scene key="postTag" component={PostTagForm} title="Tag Form" />
             </Scene>
         </Router>

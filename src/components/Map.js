@@ -27,7 +27,7 @@ class Map extends Component {
         const PlainFab = MKButton.plainFab()
         .withStyle(styles.fab)
         .withOnPress(() => {
-            console.log('plainfab');
+            console.log('plainfab3');
             Actions.postTag();
         })
         .build();
@@ -41,6 +41,7 @@ class Map extends Component {
                 >
                 {this.props.markers.map(marker => (
                         <MapView.Marker
+                        key={marker.key}
                         coordinate={marker.latlng}
                         title={marker.title}
                         description={marker.description}

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { TextInput, View, StyleSheet } from 'react-native';
 
 class PostTagForm extends Component {
-      constructor(props) {
+  constructor(props) {
     super(props);
-    this.state = { text: 'Useless Placeholder' };
+    this.state = { text: 'Tag' };
   }
 
     render() {
