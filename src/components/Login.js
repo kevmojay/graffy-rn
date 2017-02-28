@@ -47,4 +47,8 @@ class Login extends Component {
   }
 }
 
+// const mapStateToProps = (state) => {
+//   return true;
+// }
+
 export default Login
