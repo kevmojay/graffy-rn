@@ -2880,17 +2880,17 @@ react-native-experimental-navigation@0.26.x:
     fbjs "^0.8.1"
     react-addons-pure-render-mixin "^15.0.2"
 
-react-native-google-signin@^0.8.1:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/react-native-google-signin/-/react-native-google-signin-0.8.1.tgz#7b3c6898aadb2ceb964ebe725a2e85be223ef636"
+react-native-google-sign-in@0.0.14:
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/react-native-google-sign-in/-/react-native-google-sign-in-0.0.14.tgz#1d8100553832bd30aa02bfa1aaf259429be13169"
 
-react-native-maps@^0.8.2:
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.8.2.tgz#38a8d21dd032445b8cc8e4c729fb48c81131aef7"
+react-native-maps@^0.12.4:
+  version "0.12.4"
+  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.12.4.tgz#2bc115d39cad542d66c241bc0cba4dddd87e44f7"
 
-react-native-material-kit@^0.3.2:
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/react-native-material-kit/-/react-native-material-kit-0.3.4.tgz#2b513470373c83adcb37c3a36580892b50e00acd"
+react-native-material-kit@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/react-native-material-kit/-/react-native-material-kit-0.4.1.tgz#bdfc4727e4146980e129ee5bbeb7565db6a918cc"
   dependencies:
     ramda "~0.21.0"
 
@@ -2907,9 +2907,9 @@ react-native-tabs@^1.0.9:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/react-native-tabs/-/react-native-tabs-1.0.9.tgz#75d3c35e8b5b6970869eab282372cb32e2a782cd"
 
-react-native@0.41.2:
-  version "0.41.2"
-  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.41.2.tgz#c6f486b8450a9909e6fed2dfd2c2af946563bf4f"
+react-native@0.42.0:
+  version "0.42.0"
+  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.42.0.tgz#59b501603a63232598fff653a36307a26010402e"
   dependencies:
     absolute-path "^0.0.0"
     art "^0.10.0"
@@ -3018,7 +3018,7 @@ react-transform-hmr@^1.0.4:
     global "^4.3.0"
     react-proxy "^1.1.7"
 
-react@~15.4.0:
+react@^15.4.2:
   version "15.4.2"
   resolved "https://registry.yarnpkg.com/react/-/react-15.4.2.tgz#41f7991b26185392ba9bae96c8889e7e018397ef"
   dependencies:

@@ -1,14 +1,16 @@
 package com.graffy_rn;
 
 import android.app.Application;
-import android.util.Log;
 
 import com.facebook.react.ReactApplication;
-import co.apptailor.googlesignin.RNGoogleSigninPackage;
+<<<<<<< ours
+import com.airbnb.android.react.maps.MapsPackage;
+import com.reactlibrary.googlesignin.RNGoogleSignInPackage;
 import com.github.xinthink.rnmk.ReactMaterialKitPackage;
 import com.airbnb.android.react.maps.MapsPackage;
-import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import com.facebook.react.ReactInstanceManager;
+=======
+>>>>>>> theirs
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -29,7 +31,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNGoogleSigninPackage(),
+            new MapsPackage(),
+            new RNGoogleSignInPackage(),
             new ReactMaterialKitPackage(),
             new MapsPackage()
       );

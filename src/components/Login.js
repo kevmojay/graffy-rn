@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { GoogleSignin, GoogleSigninButton } from 'react-native-google-signin';
-import { StyleSheet } from 'react-native';
+import GoogleSignIn from 'react-native-google-sign-in';
+import { StyleSheet, TouchableHighlight, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 const styles = StyleSheet.create({
@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
 
 class Login extends Component {
   static signIn() {
-    GoogleSignin.signIn()
+    console.log('signin pressed');
+    GoogleSignIn.signInPromise()
     .then((user) => {
       console.log(user);
       Actions.map();
@@ -24,19 +25,21 @@ class Login extends Component {
   }
 
   static async setupGoogleSignin() {
-    try {
-      await GoogleSignin.hasPlayServices({ autoResolve: true });
-      await GoogleSignin.configure({
-        webClientId: '538482594746-0jnfj6004h2dugd85bghhs0c0a857hr4.apps.googleusercontent.com',
-        offlineAccess: true,
-      });
+    console.log('signin mounted');
+    await GoogleSignIn.configure({
+      // iOS
+      // clientID: 'yourClientID',
 
-      const user = await GoogleSignin.currentUserAsync();
-      console.log(user);
-      if (user) Actions.map();
-    } catch (err) {
-      console.log('Play services error', err.code, err.message);
-    }
+      // iOS, Android
+      // https://developers.google.com/identity/protocols/googlescopes
+      scopes: ['openid', 'email', 'profile'],
+
+      // iOS, Android
+      // Whether to request email and basic profile.
+      // [Default: true]
+      // https://developers.google.com/identity/sign-in/ios/api/interface_g_i_d_sign_in.html#a06bf16b507496b126d25ea909d366ba4
+      shouldFetchBasicProfile: true,
+    });
   }
 
   componentDidMount() {
@@ -45,12 +48,11 @@ class Login extends Component {
 
   render() {
     return (
-      <GoogleSigninButton
-        style={styles.SignInButton}
-        size={GoogleSigninButton.Size.Icon}
-        color={GoogleSigninButton.Color.Dark}
-        onPress={() => { this.signIn(); }}
-      />
+      <TouchableHighlight onPress={this.constructor.signIn()}>
+        <Text>
+            Google Sign-In
+          </Text>
+      </TouchableHighlight>
     );
   }
 }
