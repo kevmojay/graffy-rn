@@ -48,7 +48,7 @@ class Login extends Component {
 
   render() {
     return (
-      <TouchableHighlight onPress={this.constructor.signIn()}>
+      <TouchableHighlight onPress={() => this.constructor.signIn()}>
         <Text>
             Google Sign-In
           </Text>

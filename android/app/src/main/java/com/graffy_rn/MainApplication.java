@@ -3,14 +3,10 @@ package com.graffy_rn;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-<<<<<<< ours
-import com.airbnb.android.react.maps.MapsPackage;
 import com.reactlibrary.googlesignin.RNGoogleSignInPackage;
 import com.github.xinthink.rnmk.ReactMaterialKitPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.facebook.react.ReactInstanceManager;
-=======
->>>>>>> theirs
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -33,8 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
             new MapsPackage(),
             new RNGoogleSignInPackage(),
-            new ReactMaterialKitPackage(),
-            new MapsPackage()
+            new ReactMaterialKitPackage()
       );
     }
   };
