@@ -23,21 +23,9 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>com.googleusercontent.apps.704773601562-fgr44tc6r0266q4seebb7a89339s4o14</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.704773601562-fgr44tc6r0266q4seebb7a89339s4o14</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>org.reactjs.native.example.graffy-rn</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>org.reactjs.native.example.graffy-rn</string>
+				<string>com.googleusercontent.apps.538482594746-njeca2qjju77ajhiggbt2724u9kqm3u2</string>
 			</array>
 		</dict>
 	</array>

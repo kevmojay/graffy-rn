@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.facebook.react.ReactApplication;
 import com.reactlibrary.googlesignin.RNGoogleSignInPackage;
+import com.airbnb.android.react.maps.MapsPackage;
 import com.github.xinthink.rnmk.ReactMaterialKitPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.facebook.react.ReactInstanceManager;
@@ -27,8 +28,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new MapsPackage(),
             new RNGoogleSignInPackage(),
+            new MapsPackage(),
             new ReactMaterialKitPackage()
       );
     }
