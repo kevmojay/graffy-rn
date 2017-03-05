@@ -2899,7 +2899,7 @@ react-native-google-sign-in@0.0.14:
   version "0.0.14"
   resolved "https://registry.yarnpkg.com/react-native-google-sign-in/-/react-native-google-sign-in-0.0.14.tgz#1d8100553832bd30aa02bfa1aaf259429be13169"
 
-react-native-maps@^0.13.0:
+react-native-maps@0.13.0:
   version "0.13.0"
   resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.13.0.tgz#f3d791a06d36d553bcc177514ee52fdea45474c0"
 
