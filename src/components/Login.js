@@ -1,31 +1,20 @@
 import React, { Component } from 'react';
 import GoogleSignIn from 'react-native-google-sign-in';
-import { StyleSheet, TouchableHighlight, Text } from 'react-native';
+import { TouchableHighlight, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
+import { setAuthenticatedUser } from '../actions';
 
-const styles = StyleSheet.create({
-  SignInButton: {
-    width: 48,
-    height: 48,
-  },
-});
+
+// const styles = StyleSheet.create({
+//   SignInButton: {
+//     width: 48,
+//     height: 48,
+//   },
+// });
 
 class Login extends Component {
-  static signIn() {
-    console.log('signin pressed');
-    GoogleSignIn.signInPromise()
-    .then((user) => {
-      console.log(user);
-      Actions.map();
-    })
-    .catch((err) => {
-      console.log('WRONG SIGNIN', err);
-    })
-    .done();
-  }
-
   static async setupGoogleSignin() {
-    console.log('signin mounted');
     await GoogleSignIn.configure({
       // iOS
       // clientID: 'yourClientID',
@@ -42,22 +31,44 @@ class Login extends Component {
     });
   }
 
+  constructor() {
+    super();
+    this.signIn = this.signIn.bind(this);
+  }
+
   componentDidMount() {
     this.constructor.setupGoogleSignin();
   }
 
+  signIn() {
+    GoogleSignIn.signInPromise()
+    .then((user) => {
+      this.props.setAuthenticatedUser(user);
+      Actions.register();
+    })
+    .catch((err) => {
+      console.log('WRONG SIGNIN', err);
+    })
+    .done();
+  }
+
   render() {
     return (
-      <TouchableHighlight onPress={() => this.constructor.signIn()}>
+      <TouchableHighlight onPress={this.signIn}>
         <Text>
-            Google Sign-In
-          </Text>
+          Google Sign-In
+        </Text>
       </TouchableHighlight>
     );
   }
 }
-// const mapStateToProps = (state) => {
-//   return true;
-// }
 
-export default Login;
+Login.propTypes = {
+  // setAuthenticatedUser: React.PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => ({
+  authenticatedUser: state.authenticatedUser,
+});
+
+export default connect(mapStateToProps, { setAuthenticatedUser })(Login);

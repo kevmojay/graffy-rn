@@ -48,7 +48,7 @@ class Map extends Component {
               title={marker.title}
               description={marker.description}
             />
-                    ))}
+          ))}
         </MapView>
         <PlainFab>
           <Image pointerEvents="none" source={plusDark} />

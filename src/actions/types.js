@@ -1,3 +1,3 @@
-const CREATE_POST_FORM = 'create_post_form';
+export const CREATE_POST_FORM = 'create_post_form';
 
-export default CREATE_POST_FORM;
+export const SET_AUTH_USER = 'set_auth_user';
