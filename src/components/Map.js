@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MapView from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import {
@@ -37,6 +37,7 @@ class Map extends Component {
 
       <View style={styles.mapWrapper}>
         <MapView
+          provider={PROVIDER_GOOGLE}
           style={styles.mapStyle}
           region={region}
           onRegionChange={this.onRegionChange}

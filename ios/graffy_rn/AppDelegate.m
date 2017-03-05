@@ -11,6 +11,8 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+@import GoogleMaps;
+
 
 @implementation AppDelegate
 
@@ -21,7 +23,7 @@
   NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
 
   NSURL *jsCodeLocation;
-
+  [GMSServices provideAPIKey:@"AIzaSyC2jFNCjCg7ePRsbHVtv7yYZem1SXfcJUk"];
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
