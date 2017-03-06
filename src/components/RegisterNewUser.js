@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { TextInput, StyleSheet } from 'react-native';
+import { View, TextInput, StyleSheet } from 'react-native';
+import { Field, reduxForm } from 'redux-form';
+
 
 class RegisterNewUser extends Component {
   constructor(props) {
@@ -9,7 +11,7 @@ class RegisterNewUser extends Component {
 
   render() {
     const gray = 'gray';
-
+    console.log(this);
     const styles = StyleSheet.create({
       textInput: {
         height: 40,
@@ -18,13 +20,22 @@ class RegisterNewUser extends Component {
       },
     });
 
+    const { handleSubmit } = this.props;
+
     return (
-      <TextInput
-        style={styles.textInput}
-        onChangeText={text => this.setState({ text })}
-      />
+      <View>
+        <TextInput
+          style={styles.textInput}
+          onChangeText={text => this.setState({ text })}
+          value={this.state.text}
+        />
+      </View>
     );
   }
 }
+
+RegisterNewUser = reduxForm({
+  form: 'register',
+})(RegisterNewUser);
 
 export default RegisterNewUser;
