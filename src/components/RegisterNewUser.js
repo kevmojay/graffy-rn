@@ -1,41 +1,41 @@
 import React, { Component } from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
-import { Field, reduxForm } from 'redux-form';
+import { View, Text, TouchableOpacity, TextInput } from 'react-native';
+import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 
 
 class RegisterNewUser extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { text: 'Test' };
+  constructor() {
+    super();
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit() {
+    console.log(this.props.user.name);
+    Actions.map();
   }
 
   render() {
-    const gray = 'gray';
-    console.log(this);
-    const styles = StyleSheet.create({
-      textInput: {
-        height: 40,
-        borderColor: gray,
-        borderWidth: 1,
-      },
-    });
-
-    const { handleSubmit } = this.props;
-
     return (
       <View>
+        <Text>User Name:</Text>
         <TextInput
-          style={styles.textInput}
           onChangeText={text => this.setState({ text })}
-          value={this.state.text}
         />
+        <TouchableOpacity onPress={this.handleSubmit}>
+          <Text>Submit</Text>
+        </TouchableOpacity>
       </View>
     );
   }
 }
 
-RegisterNewUser = reduxForm({
-  form: 'register',
-})(RegisterNewUser);
+RegisterNewUser.propTypes = {
+  user: React.PropTypes.object.isRequired,
+};
 
-export default RegisterNewUser;
+const mapStateToProps = state => ({
+  user: state.AuthenticatedUser,
+});
+
+export default connect(mapStateToProps, {})(RegisterNewUser);
