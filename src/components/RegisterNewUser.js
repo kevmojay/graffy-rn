@@ -25,7 +25,8 @@ class RegisterNewUser extends Component {
       },
     });
 
-  render() {
+    const { handleSubmit } = this.props;
+
     return (
       <View>
         <Text>User Name:</Text>
