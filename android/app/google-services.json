@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "538482594746",
+    "project_id": "graffy-rn"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538482594746:android:1400d325b7316872",
+        "android_client_info": {
+          "package_name": "com.graffy_rn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "538482594746-ardj67ed7fgmamvhre49i0t38p1at5t6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.graffy_rn",
+            "certificate_hash": "a9369924435504d46a91afd8b7517ba245cac520"
+          }
+        },
+        {
+          "client_id": "538482594746-0jnfj6004h2dugd85bghhs0c0a857hr4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDd5ipxWjrS5cirNWfYC0IO9GCSuDBJyTw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

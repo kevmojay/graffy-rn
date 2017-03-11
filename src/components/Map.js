@@ -1,73 +1,82 @@
 import React, { Component } from 'react';
-import MapView from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { connect } from 'react-redux';
-import { 
-    StyleSheet, 
-    View, 
-    Text, 
-    TickView, 
-    Image, 
-    TouchableHighlight
+import { Actions } from 'react-native-router-flux';
+import {
+    StyleSheet,
+    View,
+    Image,
  } from 'react-native';
 
-import { MKButton, MKColor, MKTouchable } from 'react-native-material-kit';
-import * as actions from '../actions';
+import { MKButton } from 'react-native-material-kit';
+import { onNewTagPress, onRegionChange } from '../actions';
+import plusDark from '../assets/img/plus_dark.png';
 
 class Map extends Component {
 
-    render() {
-        const region  = this.props.map;
-        const styles = {
-            mapStyle: {
-                 ...StyleSheet.absoluteFillObject
-            }
-        };
+  render() {
+    const region = this.props.map;
+    const styles = {
+      mapStyle: {
+        ...StyleSheet.absoluteFillObject,
+      },
+      mapWrapper: {
+        flex: 1,
+      },
+    };
 
-        const PlainFab = MKButton.plainFab()
+    const PlainFab = MKButton.plainFab()
         .withStyle(styles.fab)
         .withOnPress(() => {
-            this.props.onPostFormPress;
+          console.log('plainfab3');
+          Actions.postTag();
         })
         .build();
-        
-        return(
 
-            <View style={{flex: 1}}>
-                <MapView style={styles.mapStyle}
-                    region={region}
-                    onRegionChange={this.onRegionChange}
-                >
-                {this.props.markers.map(marker => (
-                        <MapView.Marker
-                        coordinate={marker.latlng}
-                        title={marker.title}
-                        description={marker.description}
-                        />
-                    ))}
-                </MapView>
-                    <PlainFab>
-                        <Image pointerEvents="none" source={require('../assets/img/plus_dark.png')} />
-                    </PlainFab>
-            </View>
-        );
-    }
+    return (
+
+      <View style={styles.mapWrapper}>
+        <MapView
+          provider={PROVIDER_GOOGLE}
+          style={styles.mapStyle}
+          region={region}
+          onRegionChange={this.onRegionChange}
+        >
+          {this.props.markers.map(marker => (
+            <MapView.Marker
+              key={marker.key}
+              coordinate={marker.latlng}
+              title={marker.title}
+              description={marker.description}
+            />
+          ))}
+        </MapView>
+        <PlainFab>
+          <Image pointerEvents="none" source={plusDark} />
+        </PlainFab>
+      </View>
+    );
+  }
 }
 
+Map.propTypes = {
+  map: React.PropTypes.object,
+  markers: React.PropTypes.array,
+};
 
-
-const mapStateToProps = state => {
-    console.log(state);
-    return { 
-        map: state.map,
-        markers: state.markers
-       // onPostFormPress: state.map.
-    }
-}
-
-function mapDispatchToProps(dispatch) {
+const mapStateToProps = (state) => {
+  console.log(state);
   return {
-    actions
+    map: state.map,
+    markers: state.markers,
   };
-}
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Map);
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     onNewTagPress,
+//     onRegionChange,
+//   };
+// }
+
+export default connect(mapStateToProps, { onNewTagPress, onRegionChange })(Map);
