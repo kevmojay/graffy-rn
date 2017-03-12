@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -77,7 +78,6 @@
 		EAE15DDA1E690FFF00DE73D5 /* RNGoogleSignInBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE15DD61E690FFF00DE73D5 /* RNGoogleSignInBridge.m */; };
 		EAE15DDB1E690FFF00DE73D5 /* RNGoogleSignInEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE15DD71E690FFF00DE73D5 /* RNGoogleSignInEvents.swift */; };
 		EAE15DDC1E690FFF00DE73D5 /* RNGoogleSignInEventsBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE15DD81E690FFF00DE73D5 /* RNGoogleSignInEventsBridge.m */; };
-		5C16F63DB12E4A08B7DA0161 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 515B35A5E3554650B6F69C04 /* libAirMaps.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -387,8 +387,6 @@
 		EAE15DD71E690FFF00DE73D5 /* RNGoogleSignInEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNGoogleSignInEvents.swift; sourceTree = "<group>"; };
 		EAE15DD81E690FFF00DE73D5 /* RNGoogleSignInEventsBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNGoogleSignInEventsBridge.m; sourceTree = "<group>"; };
 		ED43028E4D2A5EE3B5957095 /* Pods-graffy_rn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graffy_rn.release.xcconfig"; path = "Pods/Target Support Files/Pods-graffy_rn/Pods-graffy_rn.release.xcconfig"; sourceTree = "<group>"; };
-		5EF8C63137F54B9EB3D47758 /* AirMaps.xcodeproj */ = {isa = PBXFileReference; name = "AirMaps.xcodeproj"; path = "../node_modules/react-native-maps/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		515B35A5E3554650B6F69C04 /* libAirMaps.a */ = {isa = PBXFileReference; name = "libAirMaps.a"; path = "libAirMaps.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -417,7 +415,6 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				39F489AA5858E6EA74EF24A7 /* libPods-graffy_rn.a in Frameworks */,
 				1FC485D9F4EE4FCBB4F36C8E /* libRCTMaterialKit.a in Frameworks */,
-				5C16F63DB12E4A08B7DA0161 /* libAirMaps.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,7 +594,6 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				2A7554499CCB49448C8E7DF6 /* RCTMaterialKit.xcodeproj */,
-				5EF8C63137F54B9EB3D47758 /* AirMaps.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
