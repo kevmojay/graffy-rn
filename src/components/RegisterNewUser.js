@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import 'whatwg-fetch';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
@@ -8,11 +9,31 @@ class RegisterNewUser extends Component {
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = { email: '', userName: '', userID: '' };
   }
 
   handleSubmit() {
-    console.log(this.props.user.name);
-    Actions.map();
+    fetch('http://localhost:8080/user', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        user_id: this.props.user.userID,
+        user_name: this.state.userName,
+        first_name: this.props.user.givenName,
+        last_name: this.props.user.familyName,
+        email: this.props.user.email,
+      }),
+    })
+    .then(response => response.json())
+    .then((responseJson) => {
+      Actions.map();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   }
 
   render() {
@@ -25,14 +46,13 @@ class RegisterNewUser extends Component {
       },
     });
 
-    const { handleSubmit } = this.props;
-
     return (
       <View>
         <Text>User Name:</Text>
         <TextInput
           style={{ borderWidth: 1, height: 40 }}
-          onChangeText={text => this.setState({ text })}
+          value={this.state.userName}
+          onChangeText={userName => this.setState({ userName })}
         />
         <TouchableOpacity onPress={this.handleSubmit}>
           <Text style={styles.button}>Submit</Text>
