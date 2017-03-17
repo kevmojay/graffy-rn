@@ -9,10 +9,41 @@ import {
  } from 'react-native';
 
 import { MKButton } from 'react-native-material-kit';
-import { onNewTagPress, onRegionChange } from '../actions';
+import { onNewTagPress, onRegionChange, updateUserLocation } from '../actions';
 import plusDark from '../assets/img/plus_dark.png';
 
 class Map extends Component {
+  
+  constructor (props) {
+    super(props);
+    this.state = {
+      region: this.props.userLocation.region
+    }
+  }
+
+  componentDidMount() {
+    console.log(this.state);
+    console.log(this.props);
+    navigator.geolocation.getCurrentPosition(position =>{
+      this.refs.map.animateToRegion({
+        region: {
+          latitude: 51.5074,
+          longitude: -0.1278,
+          latitudeDelta: 0.01,
+          longitudeDelta: 0.01,
+        }
+      }, 5000)
+      // this.setState({
+      //   region: {
+      //     latitude: position.coords.latitude,
+      //     longitude: position.coords.longitude,
+      //     latitudeDelta: 0.2,
+      //     longitudeDelta: 0.2
+      //   }
+      // });
+    });
+  }
+
 
   render() {
     const region = this.props.map;
@@ -24,7 +55,7 @@ class Map extends Component {
         flex: 1,
       },
     };
-
+    console.log(this.state);
     const PlainFab = MKButton.plainFab()
         .withStyle(styles.fab)
         .withOnPress(() => {
@@ -37,10 +68,11 @@ class Map extends Component {
 
       <View style={styles.mapWrapper}>
         <MapView
+          ref="map"
           provider={PROVIDER_GOOGLE}
           style={styles.mapStyle}
-          region={region}
-          onRegionChange={this.onRegionChange}
+          region={ this.state.region }
+          animateToRegion
         >
           {this.props.markers.map(marker => (
             <MapView.Marker
@@ -51,12 +83,15 @@ class Map extends Component {
             />
           ))}
         </MapView>
-        <PlainFab>
+        {/*<PlainFab>
           <Image pointerEvents="none" source={plusDark} />
-        </PlainFab>
+        </PlainFab>*/}
       </View>
     );
   }
+
+
+
 }
 
 Map.propTypes = {
@@ -65,10 +100,10 @@ Map.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     map: state.map,
     markers: state.markers,
+    userLocation: state.userLocation
   };
 };
 
@@ -79,4 +114,4 @@ const mapStateToProps = (state) => {
 //   };
 // }
 
-export default connect(mapStateToProps, { onNewTagPress, onRegionChange })(Map);
+export default connect(mapStateToProps, { onNewTagPress, onRegionChange, updateUserLocation })(Map);
