@@ -4,10 +4,10 @@ import {
 // Initial state for the user.
 const INITIAL_STATE = {
     region: {
-        latitude: 51.5074,
-        longitude: -0.1278,
-        latitudeDelta: 1,
-        longitudeDelta: 1,
+        latitude: 34.2359,
+        longitude: -118.5280,
+        latitudeDelta: .5,
+        longitudeDelta: .5,
     }
 } 
 

@@ -17,30 +17,18 @@ class Map extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      region: this.props.userLocation.region
+      region: this.props.userLocation.region,
     }
   }
 
   componentDidMount() {
-    console.log(this.state);
-    console.log(this.props);
     navigator.geolocation.getCurrentPosition(position =>{
-      this.refs.map.animateToRegion({
-        region: {
-          latitude: 51.5074,
-          longitude: -0.1278,
-          latitudeDelta: 0.01,
-          longitudeDelta: 0.01,
-        }
-      }, 5000)
-      // this.setState({
-      //   region: {
-      //     latitude: position.coords.latitude,
-      //     longitude: position.coords.longitude,
-      //     latitudeDelta: 0.2,
-      //     longitudeDelta: 0.2
-      //   }
-      // });
+      this.map.animateToRegion({ 
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          latitudeDelta: 0.5,
+          longitudeDelta: 0.5,   
+      }, 3000);
     });
   }
 
@@ -68,11 +56,9 @@ class Map extends Component {
 
       <View style={styles.mapWrapper}>
         <MapView
-          ref="map"
+          ref={ref => { this.map = ref; }}
           provider={PROVIDER_GOOGLE}
           style={styles.mapStyle}
-          region={ this.state.region }
-          animateToRegion
         >
           {this.props.markers.map(marker => (
             <MapView.Marker
@@ -83,9 +69,9 @@ class Map extends Component {
             />
           ))}
         </MapView>
-        {/*<PlainFab>
+        <PlainFab>
           <Image pointerEvents="none" source={plusDark} />
-        </PlainFab>*/}
+        </PlainFab>
       </View>
     );
   }
