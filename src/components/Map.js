@@ -17,23 +17,28 @@ class Map extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      region: this.props.userLocation.region,
+      region: null
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     navigator.geolocation.getCurrentPosition(position =>{
-      this.map.animateToRegion({ 
+      this.setState({
+        region:{
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
           latitudeDelta: 0.5,
-          longitudeDelta: 0.5,   
-      }, 3000);
+          longitudeDelta: 0.5,
+        }
+      })
     });
   }
 
 
   render() {
+    if( this.state.region === null ){
+      return false;
+    }
     const region = this.props.map;
     const styles = {
       mapStyle: {
@@ -43,7 +48,6 @@ class Map extends Component {
         flex: 1,
       },
     };
-    console.log(this.state);
     const PlainFab = MKButton.plainFab()
         .withStyle(styles.fab)
         .withOnPress(() => {
@@ -59,6 +63,7 @@ class Map extends Component {
           ref={ref => { this.map = ref; }}
           provider={PROVIDER_GOOGLE}
           style={styles.mapStyle}
+          region={this.state.region}
         >
           {this.props.markers.map(marker => (
             <MapView.Marker
