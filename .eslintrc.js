@@ -14,6 +14,9 @@ module.exports = {
 "ecmaFeatures": {
     "jsx": true
   },
+  "globals": {
+    "fetch": true,
+  },
   // add your custom rules here
   "rules": {
     "react-native/no-unused-styles": 2,
