@@ -28,7 +28,6 @@ class Map extends Component {
     const PlainFab = MKButton.plainFab()
         .withStyle(styles.fab)
         .withOnPress(() => {
-          console.log('plainfab3');
           Actions.postTag();
         })
         .build();
@@ -63,9 +62,8 @@ Map.propTypes = {
   map: React.PropTypes.object,
   markers: React.PropTypes.array,
 };
-
+ 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     map: state.map,
     markers: state.markers,
