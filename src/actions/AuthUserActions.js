@@ -1,9 +1,11 @@
-import { SET_AUTH_USER } from './types';
+import { SET_AUTH_USER, UPDATE_AUTH_USER } from './types';
 
-export const setAuthenticatedUser = (value) => {
-  console.log('set val: ' + JSON.stringify(value));
-  return {
-    type: SET_AUTH_USER,
-    payload: value,
-  };
-};
+export const setAuthenticatedUser = value => ({
+  type: SET_AUTH_USER,
+  payload: value,
+});
+
+export const updateAuthenticatedUser = value => ({
+  type: UPDATE_AUTH_USER,
+  payload: value,
+});
