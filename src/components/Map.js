@@ -9,7 +9,7 @@ import {
  } from 'react-native';
 
 import { MKButton } from 'react-native-material-kit';
-import { onNewTagPress, onRegionChange, updateUserLocation } from '../actions';
+import { onNewTagPress, onRegionChange } from '../actions';
 import plusDark from '../assets/img/plus_dark.png';
 
 class Map extends Component {
@@ -94,7 +94,6 @@ const mapStateToProps = (state) => {
   return {
     map: state.map,
     markers: state.markers,
-    userLocation: state.userLocation
   };
 };
 
@@ -105,4 +104,4 @@ const mapStateToProps = (state) => {
 //   };
 // }
 
-export default connect(mapStateToProps, { onNewTagPress, onRegionChange, updateUserLocation })(Map);
+export default connect(mapStateToProps, { onNewTagPress, onRegionChange })(Map);
