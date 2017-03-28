@@ -13,8 +13,32 @@ import { onNewTagPress, onRegionChange } from '../actions';
 import plusDark from '../assets/img/plus_dark.png';
 
 class Map extends Component {
+  
+  constructor (props) {
+    super(props);
+    this.state = {
+      region: null
+    }
+  }
+
+  componentWillMount() {
+    navigator.geolocation.getCurrentPosition(position =>{
+      this.setState({
+        region:{
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          latitudeDelta: 0.5,
+          longitudeDelta: 0.5,
+        }
+      })
+    });
+  }
+
 
   render() {
+    if( this.state.region === null ){
+      return false;
+    }
     const region = this.props.map;
     const styles = {
       mapStyle: {
@@ -24,7 +48,6 @@ class Map extends Component {
         flex: 1,
       },
     };
-
     const PlainFab = MKButton.plainFab()
         .withStyle(styles.fab)
         .withOnPress(() => {
@@ -37,10 +60,10 @@ class Map extends Component {
 
       <View style={styles.mapWrapper}>
         <MapView
+          ref={ref => { this.map = ref; }}
           provider={PROVIDER_GOOGLE}
           style={styles.mapStyle}
-          region={region}
-          onRegionChange={this.onRegionChange}
+          region={this.state.region}
         >
           {this.props.markers.map(marker => (
             <MapView.Marker
@@ -57,6 +80,9 @@ class Map extends Component {
       </View>
     );
   }
+
+
+
 }
 
 Map.propTypes = {
@@ -65,7 +91,6 @@ Map.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     map: state.map,
     markers: state.markers,
